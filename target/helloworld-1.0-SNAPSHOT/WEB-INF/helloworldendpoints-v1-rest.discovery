@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/L6kYaAT64RBEH3LgNwkeYO1r7dA\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/VeC8rDT7fvBc61X6mtrU2uZdePU\"",
  "discoveryVersion": "v1",
  "id": "helloworldendpoints:v1",
  "name": "helloworldendpoints",
@@ -71,6 +71,20 @@
   }
  },
  "schemas": {
+  "CalcClass": {
+   "id": "CalcClass",
+   "type": "object",
+   "properties": {
+    "result": {
+     "type": "number",
+     "format": "double"
+    },
+    "rez": {
+     "type": "number",
+     "format": "double"
+    }
+   }
+  },
   "HelloClass": {
    "id": "HelloClass",
    "type": "object",
@@ -82,6 +96,35 @@
   }
  },
  "methods": {
+  "addByTwoNumbers": {
+   "id": "helloworldendpoints.addByTwoNumbers",
+   "path": "addByTwoNumbers",
+   "httpMethod": "GET",
+   "parameters": {
+    "number1": {
+     "type": "number",
+     "required": true,
+     "format": "double",
+     "location": "query"
+    },
+    "number2": {
+     "type": "number",
+     "required": true,
+     "format": "double",
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "number1",
+    "number2"
+   ],
+   "response": {
+    "$ref": "CalcClass"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
   "greetByPeriod": {
    "id": "helloworldendpoints.greetByPeriod",
    "path": "greetByPeriod",

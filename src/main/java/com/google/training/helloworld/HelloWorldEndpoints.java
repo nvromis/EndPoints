@@ -35,5 +35,11 @@ public class HelloWorldEndpoints {
     public HelloClass greetByPeriod(@Named("name") String name,    @Named("period") String period){
     return new HelloClass(name,period);
     }
+    
+    
+    @ApiMethod(name ="addByTwoNumbers", path = "addByTwoNumbers", httpMethod = HttpMethod.GET)
+    public CalcClass addByTwoNumbers(@Named("number1") double number1,    @Named("number2") double number2){
+    return new CalcClass(number1,number2);
+    }
 
 }

@@ -60,6 +60,14 @@ function enableButtons () {
 	
 	// Update the button label now that the button is active
 	btn.value="Click me for a personal greeting with period";
+	
+	
+	// Set the onclick action for the second button
+	btn = document.getElementById("input_sum_by_two_numbers");
+	btn.onclick=function(){addByTwoNumbers();};
+	
+	// Update the button label now that the button is active
+	btn.value="Click me for a result adding";
 }
 
 /*
@@ -96,11 +104,21 @@ function greetByPeriod(){
 	request.execute(sayHelloCallback);
 	}
 
+function addByTwoNumbers(){
+	var number1 = document.getElementById("field_number1").value;
+	var number2 = document.getElementById("field_number2").value; 
+	var request = gapi.client.helloworldendpoints.addByTwoNumbers({'number1': number1, 'number2':number2});
+	request.execute(showSum);
+	}
 // Process the JSON response
 // In this case, just show an alert dialog box
 // displaying the value of the message field in the response
 function sayHelloCallback (response) {
 	alert(response.message);	
+}
+
+function showSum (response) {
+	alert(response.rez);	
 }
 
 
